@@ -34,7 +34,7 @@ class Gmkacc:
         acc = self.mkacc(n)
         pss = self.mkpass(n)
         if len(acc) == len(pss):
-            with open('accounts.csv', 'w') as f:
+            with open('accounts.csv', 'a') as f:
                 for ii in range(0, len(acc)):
                     f.write(acc[ii] + '\t' + pss[ii] )
                     f.write('\n')
