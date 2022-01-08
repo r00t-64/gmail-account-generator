@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import hashlib
 import random
+import names
 
 class Gmkacc:
     def __init__(self):
@@ -19,7 +20,7 @@ class Gmkacc:
                 prefstr = 'student'
             if pref == 4:
                 prefstr = 'host'
-            self.acc.append(prefstr +'-0'+str(random.randint(1,9))+'-'+hashlib.sha1(str(random.randint(1,9999)).encode('utf-8')).hexdigest()[1:10])
+            self.acc.append(prefstr +'.0'+str(random.randint(1,9))+'.'+hashlib.sha1(str(random.randint(1,9999)).encode('utf-8')).hexdigest()[1:10])
         
         return self.acc
 
@@ -36,7 +37,7 @@ class Gmkacc:
         if len(acc) == len(pss):
             with open('accounts.csv', 'a') as f:
                 for ii in range(0, len(acc)):
-                    f.write(acc[ii] + '\t' + pss[ii] )
+                    f.write(acc[ii] + '\t' + pss[ii] + '\t' + names.get_full_name())
                     f.write('\n')
 
 accounts = Gmkacc()
