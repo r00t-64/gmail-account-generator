@@ -7,7 +7,7 @@ class Gmkacc:
         self.acc = []
         self.pss = []
 
-    def mkacc(n, self):
+    def mkacc(self, n):
         
         for ii in range(0,n):
             pref = random.randint(1,4)
@@ -23,16 +23,16 @@ class Gmkacc:
         
         return self.acc
 
-    def mkpass(n,self):
+    def mkpass(self,n):
 
         for ii in range(0,n):
             self.pss.append(hashlib.sha1(str(random.randint(1,9999)).encode('utf-8')).hexdigest()[1:15])
         
         return self.pss
 
-    def writefile( n,self):
+    def writefile(self,n):
         acc = self.mkacc(n)
-        pss = self.mkpas(n)
+        pss = self.mkpass(n)
         if len(acc) == len(pss):
             with open('accounts.csv', 'w') as f:
                 for ii in range(0, len(acc)):
@@ -40,5 +40,4 @@ class Gmkacc:
                     f.write('\n')
 
 accounts = Gmkacc()
-accounts.mkacc(3)
-accounts.mkpass(3)
+accounts.writefile(10)
