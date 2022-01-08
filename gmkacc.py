@@ -2,9 +2,14 @@
 import hashlib
 import random
 
-def mkacc(n):
-    with open('readme.txt', 'w') as f:
-        for i in range(1,n):
+class Gmkacc:
+    def __init__(self):
+        self.acc = []
+        self.pss = []
+
+    def mkacc(n, self):
+        
+        for ii in range(0,n):
             pref = random.randint(1,4)
             if pref == 1:
                 prefstr = 'guest'
@@ -14,14 +19,26 @@ def mkacc(n):
                 prefstr = 'student'
             if pref == 4:
                 prefstr = 'host'
-            acc = prefstr +'-0'+str(random.randint(1,9))+'-'+hashlib.sha1(str(random.randint(1,n)).encode('utf-8')).hexdigest()[1:10]
-            f.write(acc)
-            f.write('\n')
+            self.acc.append(prefstr +'-0'+str(random.randint(1,9))+'-'+hashlib.sha1(str(random.randint(1,9999)).encode('utf-8')).hexdigest()[1:10])
+        
+        return self.acc
 
+    def mkpass(n,self):
 
-def mkpass():
-    return True
+        for ii in range(0,n):
+            self.pss.append(hashlib.sha1(str(random.randint(1,9999)).encode('utf-8')).hexdigest()[1:15])
+        
+        return self.pss
 
-def writefile():
-    return True
-mkacc(20)
+    def writefile( n,self):
+        acc = self.mkacc(n)
+        pss = self.mkpas(n)
+        if len(acc) == len(pss):
+            with open('accounts.csv', 'w') as f:
+                for ii in range(0, len(acc)):
+                    f.write(acc[ii] + '\t' + pss[ii] )
+                    f.write('\n')
+
+accounts = Gmkacc()
+accounts.mkacc(3)
+accounts.mkpass(3)
