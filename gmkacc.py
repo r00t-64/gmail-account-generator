@@ -67,10 +67,11 @@ class Gmkacc:
         if len(acc) == len(pss):
             with open('accounts.csv', 'a') as f:
                 for ii in range(0, len(acc)):
-                    f.write(acc[ii] + '\t' + pss[ii] + '\t' + names.get_full_name())
                     f.write('\n')
+                    f.write(acc[ii] + '\t' + pss[ii] + '\t' + names.get_full_name())
+                    
                 f.close()
                     
 accounts = Gmkacc()
-#accounts.writefile(10)
+accounts.writefile(9)
 accounts.email_validate()
