@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import hashlib
 import random
-import names
+import 'src/names'
 import imaplib
 import csv
 
@@ -26,7 +26,7 @@ class Gmkacc:
         return code
 
     def email_validate(self):
-        with open('accounts.csv', 'r') as istr:
+        with open('src/accounts.csv', 'r') as istr:
             with open('validated_accounts.csv', 'w') as ostr:
                 for line in istr:
                     creds = line.rstrip().split('\t')
@@ -65,7 +65,7 @@ class Gmkacc:
         acc = self.mkacc(n)
         pss = self.mkpass(n)
         if len(acc) == len(pss):
-            with open('accounts.csv', 'a') as f:
+            with open('src/accounts.csv', 'a') as f:
                 for ii in range(0, len(acc)):
                     f.write('\n')
                     f.write(acc[ii] + '\t' + pss[ii] + '\t' + names.get_full_name())
@@ -73,5 +73,5 @@ class Gmkacc:
                 f.close()
                     
 accounts = Gmkacc()
-accounts.writefile(9)
-accounts.email_validate()
+#accounts.writefile(9)
+#accounts.email_validate()
