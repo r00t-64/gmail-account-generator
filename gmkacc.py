@@ -8,20 +8,22 @@ class Gmkacc:
     def __init__(self):
         self.acc = []
         self.pss = []
+        self.address = 'smtp.gmail.com'
         
     def email_validate(self, username, password):
-        address = 'smtp.gmail.com'
-        try:
-            server = smtplib.SMTP_SSL(address)
-            server.login(username, password)
-            if server.status == 'AUTH':
-                code = 200
-            if server.status == 'NONAUTH':
-                code = 400
-        except:
-            code = 400
+        with open('accounts.csv', 'a') as f:
+            for ii in f:
+                try:
+                    server = smtplib.SMTP_SSL(address)
+                    server.login(username, password)
+                    if server.status == 'AUTH':
+                        code = 200
+                    if server.status == 'NONAUTH':
+                        code = 400
+                except:
+                    code = 400
         
-        return code
+                
     
     def mkacc(self, n):
         
@@ -52,12 +54,8 @@ class Gmkacc:
         if len(acc) == len(pss):
             with open('accounts.csv', 'a') as f:
                 for ii in range(0, len(acc)):
-                    if self.email_validate(acc[ii],pss[ii]) == 200:
-                        f.write(acc[ii] + '\t' + pss[ii] + '\t' + names.get_full_name() + '\t' +'ACTIVE')
-                        f.write('\n')
-                    if self.email_validate(acc[ii],pss[ii]) == 400:
-                        f.write(acc[ii] + '\t' + pss[ii] + '\t' + names.get_full_name() + '\t' +'INACTIVE')
-                        f.write('\n')
-
+                    f.write(acc[ii] + '\t' + pss[ii] + '\t' + names.get_full_name())
+                    f.write('\n')
+                    
 accounts = Gmkacc()
 accounts.writefile(10)
