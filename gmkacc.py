@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import hashlib
 import random
-import 'src/names'
+import src.names
 import imaplib
 import csv
 
