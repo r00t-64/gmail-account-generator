@@ -3,26 +3,39 @@ import hashlib
 import random
 import names
 import imaplib
+import csv
 
 class Gmkacc:
     def __init__(self):
         self.acc = []
         self.pss = []
         self.address = 'smtp.gmail.com'
+    
+    def imap_login(self, username, password):
+        code=0
+        try:
+            server = imaplib.IMAP4_SSL(self.address)
+            server.login(username, password)
+            if server.status == 'AUTH':
+                code = 200
+            if server.status == 'NONAUTH':
+                code = 400
+        except:
+            code = 400
         
-    def email_validate(self, username, password):
-        with open('accounts.csv', 'a') as f:
-            for ii in f:
-                try:
-                    server = smtplib.SMTP_SSL(address)
-                    server.login(username, password)
-                    if server.status == 'AUTH':
-                        code = 200
-                    if server.status == 'NONAUTH':
-                        code = 400
-                except:
-                    code = 400
-        
+        return code
+
+    def email_validate(self):
+        with open('accounts.csv', 'r') as istr:
+            with open('validated_accounts.csv', 'w') as ostr:
+                for line in istr:
+                    creds = line.rstrip().split('\t')
+                    if self.imap_login(creds[0], creds[1]) == 200:
+                        line = line.rstrip('\n')+ '\tACTIVE'
+                    else:   
+                        line = line.rstrip('\n') + '\tINACTIVE'
+                    
+                    print(line, file=ostr)
                 
     
     def mkacc(self, n):
@@ -56,6 +69,8 @@ class Gmkacc:
                 for ii in range(0, len(acc)):
                     f.write(acc[ii] + '\t' + pss[ii] + '\t' + names.get_full_name())
                     f.write('\n')
+                f.close()
                     
 accounts = Gmkacc()
-accounts.writefile(10)
+#accounts.writefile(10)
+accounts.email_validate()
