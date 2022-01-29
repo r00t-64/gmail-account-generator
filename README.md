@@ -1,6 +1,6 @@
 # gmail-account-generator 
 
-Leading the world to an open web authentication  
+*Leading the world to an open authentication*  
 
 Random Accounts for gmail --- A csv file is generated and you need to pass it to the gmail sign up 
 
