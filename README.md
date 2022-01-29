@@ -3,14 +3,14 @@
 *Leading the world to an open authentication*  
 
 ## use:  
-Random Accounts for gmail:  
-A csv file is generated and you need to pass it to the gmail sign up...  
+Many random gmail accounts are generated to the comunnity, for bring to them, the chance of protect their  
+security in many websites that require an account authentication...  
   
 	==================================  
 	|[Gmail Account Generator] ==> 3 |  
 	|--------------------------------|  
 	| "We are fsociety"              |  
-	| Coded By isaac (@r00t-64)      |  
+	| Coded By Isaac (@r00t-64)      |  
 	|--------------------------------|  
 	
 
