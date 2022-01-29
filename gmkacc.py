@@ -1,10 +1,10 @@
 #!/usr/bin/python3
+from __future__ import absolute_import
+from __future__ import print_function
 import hashlib
 import random
 import src.names
 import smtplib
-from __future__ import absolute_import
-from __future__ import print_function
 from six.moves import input
 import csv
 
