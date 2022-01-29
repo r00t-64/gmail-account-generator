@@ -2,25 +2,29 @@
 import hashlib
 import random
 import src.names
-import imaplib
+import smtplib
 import csv
 
 class Gmkacc:
     def __init__(self):
         self.acc = []
         self.pss = []
-        self.address = 'smtp.gmail.com'
+        self.init_smtplib()
     
+    def init_smtplib(self):
+        self.smtp = smtplib.SMTP("smtp.gmail.com",587)
+        self.smtp.starttls()
+        self.smtp.ehlo()
+        
     def imap_login(self, username, password):
         code=0
         try:
-            server = imaplib.IMAP4_SSL(self.address)
-            server.login(username, password)
-            if server.status == 'AUTH':
-                code = 200
-            if server.status == 'NONAUTH':
-                code = 400
-        except:
+            self.smtp.login(username,password)   
+            self.smtp.quit()
+            self.init_smtplib()
+            code = 200
+            break;
+        except smtplib.SMTPAuthenticationError::
             code = 400
         
         return code
