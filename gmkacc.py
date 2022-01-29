@@ -90,5 +90,19 @@ print('''
 	''')
 
 instance = Gmkacc()
-#accounts.writefile(9)
-#accounts.gmail_validate()
+
+do = input('''
+		Choose any number ?
+		1 - Validate gmail accounts
+		2 - Create new gmail accounts (#)
+		
+		==> ''')
+
+if do == '1':
+	headers = [('User-agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.1) Gecko/2008071615 Fedora/3.0.1-1.fc9 Firefox/3.0.1')]
+	instance.gmail_validate()
+################	
+if do == '2':
+	headers = [('User-agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.1) Gecko/2008071615 Fedora/3.0.1-1.fc9 Firefox/3.0.1')]
+	instance.writefile(9)
+
