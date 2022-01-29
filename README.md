@@ -2,10 +2,10 @@
 
 *Leading the world to an open authentication*  
 
-## use:  
-Many random gmail accounts are generated to the comunnity, for bring to them, the chance of protect their  
-security in many websites that require an account authentication...  
+## use:   
   
+Many random gmail accounts are generated for the comunnity, to give to them the chance of protect their  
+security in many websites that require an account authentication... 
 	==================================  
 	|[Gmail Account Generator] ==> 3 |  
 	|--------------------------------|  
