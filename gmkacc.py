@@ -84,8 +84,8 @@ print('''
 	==================================
 	|[Gmail Account Generator] ==> 3 |
 	|--------------------------------|
-	| rooting for freedom            |
-	| Coded By isaac (@r00t-64)|
+	| "We are fsociety"              |
+	| Coded By isaac (@r00t-64)      |
 	|--------------------------------|
 	''')
 
