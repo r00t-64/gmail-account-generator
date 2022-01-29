@@ -26,7 +26,7 @@ class Gmkacc:
             code = 200
             self.smtp.quit()
             self.init_smtplib()
-            break;
+            
         except smtplib.SMTPAuthenticationError:
             code = 400
         
