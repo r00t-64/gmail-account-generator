@@ -19,4 +19,4 @@ Random Accounts for gmail --- A csv file is generated and you need to pass it to
 		2 - Create new gmail accounts (#) --> indicate how many accounts you need.  
 
 # What the hell is this?  
-"<Manifest in process>"
+## *Manifest in process*
