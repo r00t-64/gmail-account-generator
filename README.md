@@ -15,5 +15,8 @@ Random Accounts for gmail --- A csv file is generated and you need to pass it to
 	
 
 		Choose any number ?  
-		1 - Validate gmail accounts  --> Check the database for active or inactiva accounts  
-		2 - Create new gmail accounts (#) --> indicate how many accounts you need  
+		1 - Validate gmail accounts  --> Check the database for active or inactivae accounts.  
+		2 - Create new gmail accounts (#) --> indicate how many accounts you need.  
+
+# What the hell is this?  
+<Manifest in process>
