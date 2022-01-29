@@ -2,9 +2,9 @@
 
 *Leading the world to an open authentication*  
 
-Random Accounts for gmail --- A csv file is generated and you need to pass it to the gmail sign up 
-
 ## use:  
+Random Accounts for gmail:  
+A csv file is generated and you need to pass it to the gmail sign up...  
   
 	==================================  
 	|[Gmail Account Generator] ==> 3 |  
