@@ -3,6 +3,9 @@ import hashlib
 import random
 import src.names
 import smtplib
+from __future__ import absolute_import
+from __future__ import print_function
+from six.moves import input
 import csv
 
 class Gmkacc:
@@ -16,7 +19,7 @@ class Gmkacc:
         self.smtp.starttls()
         self.smtp.ehlo()
         
-    def imap_login(self, username, password):
+    def try_gmail(self, username, password):
         code=0
         try:
             self.smtp.login(username,password)   
@@ -29,7 +32,7 @@ class Gmkacc:
         
         return code
 
-    def email_validate(self):
+    def gmail_validate(self):
         with open('src/accounts.csv', 'r') as istr:
             with open('validated_accounts.csv', 'w') as ostr:
                 for line in istr:
@@ -78,4 +81,4 @@ class Gmkacc:
                     
 accounts = Gmkacc()
 #accounts.writefile(9)
-#accounts.email_validate()
+#accounts.gmail_validate()
