@@ -22,10 +22,10 @@ class Gmkacc:
     def try_gmail(self, username, password):
         code=0
         try:
-            self.smtp.login(username,password)   
+            self.smtp.login(username,password)
+            code = 200
             self.smtp.quit()
             self.init_smtplib()
-            code = 200
             break;
         except smtplib.SMTPAuthenticationError::
             code = 400
@@ -37,7 +37,7 @@ class Gmkacc:
             with open('validated_accounts.csv', 'w') as ostr:
                 for line in istr:
                     creds = line.rstrip().split('\t')
-                    if self.imap_login(creds[0], creds[1]) == 200:
+                    if self.try_gmail(creds[0], creds[1]) == 200:
                         line = line.rstrip('\n')+ '\tACTIVE'
                     else:   
                         line = line.rstrip('\n') + '\tINACTIVE'
@@ -78,7 +78,17 @@ class Gmkacc:
                     f.write(acc[ii] + '\t' + pss[ii] + '\t' + names.get_full_name())
                     
                 f.close()
-                    
-accounts = Gmkacc()
+
+
+print('''
+	==================================
+	|[Gmail Account Generator] ==> 3 |
+	|--------------------------------|
+	| rooting for freedom            |
+	| Coded By isaac (@r00t-64)|
+	|--------------------------------|
+	''')
+
+instance = Gmkacc()
 #accounts.writefile(9)
 #accounts.gmail_validate()
